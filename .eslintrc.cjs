@@ -15,5 +15,6 @@ module.exports = {
   rules: {
     'no-undef': 'off',
     'vue/comment-directive': 'off',
+    'vue/multi-word-component-names': 'off',
   },
 }

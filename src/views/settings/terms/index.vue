@@ -1,5 +1,7 @@
 <script setup lang="ts"></script>
 
 <template>
-  <main>Hello Vue3</main>
+  <div>terms</div>
 </template>
+
+<style lang="scss" scoped></style>

@@ -1,12 +1,19 @@
 import { createRouter, createWebHistory, type RouteRecordRaw } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
 import type { App } from 'vue'
+import { baseRoutes, buildMenus } from './routes'
 
 const routes: RouteRecordRaw[] = [
   {
     path: '/',
-    name: 'home',
-    component: HomeView,
+    name: 'root',
+    redirect: '/home',
+    component: () => import('@/views/_Layout/Layout.vue'),
+    children: [...buildMenus(baseRoutes)],
+  },
+  {
+    path: '/:pathMatch(.*)*',
+    name: 'NotFound',
+    component: () => import('@/views/404/index.vue'),
   },
 ]
 
