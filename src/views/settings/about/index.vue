@@ -1,7 +1,15 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import editTerms from '@/components/edit-terms/index.vue'
+
+const title = '关于我们'
+const data = {
+  title: 'Hello',
+  content: '哈哈哈',
+}
+</script>
 
 <template>
-  <div>about</div>
+  <editTerms :title="title" :data="data" />
 </template>
 
 <style lang="scss" scoped></style>

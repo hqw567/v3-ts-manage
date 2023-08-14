@@ -14,13 +14,14 @@ import { useRoute } from 'vue-router'
 import MenuItem from './menu-item.vue'
 
 const route = useRoute()
-const defaultActive = ref(route.path.slice(1))
+const defaultActive = ref(route.path)
+
 const menus = ref(buildMenus(baseRoutes))
 
 watch(
   () => route.path,
   () => {
-    defaultActive.value = route.path.slice(1)
+    defaultActive.value = route.path
   },
 )
 </script>
@@ -32,6 +33,7 @@ watch(
   align-items: center;
   justify-content: center;
   background-color: var(--el-menu-active-color);
+  margin-bottom: 10px;
   img {
     width: 124px;
     height: 34px;

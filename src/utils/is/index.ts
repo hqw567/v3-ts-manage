@@ -53,3 +53,8 @@ export function isMap<T extends Map<any, any>>(value: T | unknown): value is T {
 export function isFile<T extends File>(value: T | unknown): value is T {
   return Object.prototype.toString.call(value) === '[object File]'
 }
+
+export function isUrl(str: string): boolean {
+  const urlRegex = /^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w.-]+)+[\w\-._~:/?#[\]@!$&'()*+,;=.]+$/
+  return urlRegex.test(str)
+}

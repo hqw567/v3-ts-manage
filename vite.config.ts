@@ -12,6 +12,9 @@ import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 const pathSrc = path.resolve(__dirname, 'src')
 // https://vitejs.dev/config/
 export default defineConfig({
+  server: {
+    port: 3030,
+  },
   plugins: [
     vue(),
     AutoImport({
@@ -43,7 +46,7 @@ export default defineConfig({
         }),
         // Auto register Element Plus components
         // 自动导入 Element Plus 组件
-        ElementPlusResolver(),
+        ElementPlusResolver({ importStyle: 'sass' }),
       ],
 
       dts: path.resolve(pathSrc, 'components.d.ts'),
@@ -53,6 +56,13 @@ export default defineConfig({
       autoInstall: true,
     }),
   ],
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: `@use "src/styles/element-plus/custom.scss" as *;`,
+      },
+    },
+  },
 
   resolve: {
     alias: {

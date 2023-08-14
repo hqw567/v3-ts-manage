@@ -4,7 +4,9 @@
       <Menu />
     </el-aside>
     <el-container class="layout-main">
-      <el-header></el-header>
+      <el-header>
+        <Header></Header>
+      </el-header>
       <el-main>
         <!-- <Tabs /> -->
         <div class="layout-content">
@@ -16,6 +18,8 @@
 </template>
 
 <script setup lang="ts">
+import { UserFilled } from '@element-plus/icons-vue'
+import Header from './Header/index.vue'
 import Menu from './Menu/Menu.vue'
 import Tabs from './Tabs.vue'
 </script>
@@ -36,7 +40,8 @@ import Tabs from './Tabs.vue'
     .el-main {
       background-color: rgb(246, 246, 246);
       .layout-content {
-        height: calc(100% - 44.5px);
+        // height: calc(100% - 44.5px);
+        height: 100%;
         overflow: auto;
       }
     }
